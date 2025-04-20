@@ -40,7 +40,7 @@ A Laravel package that enables programmatic modification of environment variable
 You can install the package via Composer:
 
 ```bash
-composer require alamindev360/laravel-env:1.0
+composer require alamindev360/laravel-env:dev-main
 ```
 
 ## 🚀 Usage
