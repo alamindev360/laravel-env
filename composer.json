@@ -11,12 +11,12 @@
         "command",
         "artisan",
         "php",
-        "souldoit"
+        "alamindev360"
     ],
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "SoulDoit\\SetEnv\\": "src/"
+            "AlaminDev360\\SetEnv\\": "src/"
         }
     },
     "authors": [
@@ -33,7 +33,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "SoulDoit\\SetEnv\\Providers\\SetEnvServiceProvider"
+                "AlaminDev360\\SetEnv\\Providers\\SetEnvServiceProvider"
             ]
         }
     }
