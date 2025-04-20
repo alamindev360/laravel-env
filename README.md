@@ -50,7 +50,7 @@ composer require alamindev360/laravel-env
 First, import the `Env` facade in your code:
 
 ```php
-use SoulDoit\SetEnv\Facades\Env;
+use AlaminDe360\SetEnv\Facades\Env;
 ```
 
 ### Setting Environment Variables
@@ -89,19 +89,19 @@ Env::set("ENABLE_CLOCKWORK", false, afterKey: "APP_NAME");
 
 1. Interactive mode:
 ```bash
-php artisan souldoit:set-env
+php artisan alamindev360:set-env
 ```
 
 2. Direct mode:
 ```bash
-php artisan souldoit:set-env "MY_APP_NAME=My Laravel Application"
+php artisan alamindev360:set-env "MY_APP_NAME=My Laravel Application"
 ```
 
 3. Specify target env file:
 ```bash
-php artisan souldoit:set-env "MY_APP_NAME=Localhost" -E .env.example
+php artisan alamindev360:set-env "MY_APP_NAME=Localhost" -E .env.example
 # or
-php artisan souldoit:set-env "MY_APP_NAME=Localhost" --env_file=.env.example
+php artisan alamindev360:set-env "MY_APP_NAME=Localhost" --env_file=.env.example
 ```
 
 ### Getting Environment Variables
@@ -117,7 +117,7 @@ $value = Env::get("MY_APP_NAME");
 When working in a production environment, you can use the `--force` flag to bypass confirmation prompts:
 
 ```bash
-php artisan souldoit:set-env "MY_APP_NAME=Production App" --force
+php artisan alamindev360:set-env "MY_APP_NAME=Production App" --force
 ```
 
 ## ❤️ Support
