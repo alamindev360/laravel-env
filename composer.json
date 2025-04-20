@@ -25,12 +25,20 @@
             "email": "alamindev360@gmail.com"
         }
     ],
+    "repositories": [
+        {
+        "type": "vcs",
+        "url": "https://github.com/alamindev360/laravel-env"
+        }
+    ],
     "require": {
         "alamindev360/laravel-env": "1.0",
         "php": "^8.0.0",
         "illuminate/support": "^10.0|^11.0|^12.0",
         "illuminate/console": "^10.0|^11.0|^12.0"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "extra": {
         "laravel": {
             "providers": [
