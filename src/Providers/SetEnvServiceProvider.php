@@ -18,7 +18,7 @@ final class SetEnvServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->commands(
-            commands: [
+            [
                 SetEnvCommand::class,
             ],
         );

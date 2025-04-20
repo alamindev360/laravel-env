@@ -10,8 +10,10 @@ class Env
 {
     private $env_file_content = '';
 
+    private $env_file = ".env";
+
     function __construct(
-        private string $env_file = ".env"
+        string $env_file = ".env"
     )
     {
         $this->loadEnvContent();
@@ -27,13 +29,14 @@ class Env
         return Str::of($this->env_file_content)
             ->match("/^$key=(.*)$/m")
             ->trim()
-            ->when(
-                fn (Stringable $str) => $str->startsWith('"') && $str->endsWith('"'),
-                fn ($value) => Str::of($value)->substr(1, -1)
-            );
+            ->when(function (Stringable $str){
+                return $str->startsWith('"') && $str->endsWith('"');
+            },function($value){
+                return Str::of($value)->substr(1, -1);
+            });
     }
 
-    public function set(string $key, string|bool $value, ?string $comments = null, ?string $afterKey = null): bool
+    public function set(string $key, string|bool $value, ? string $comments = null, ?string $afterKey = null): bool
     {
         if (is_bool($value)) {
             $value = $value ? 'true' : 'false';
@@ -64,7 +67,9 @@ class Env
                     $replaced_env = $replaced_env->replaceMatches("/^$key=.*?(?:\n|$)/m", "");
                     $replaced_env = $replaced_env->replaceMatches(
                         "/^{$afterKey}=.*$/m",
-                        fn($match) => $match[0] . "\n" . $new_env_var_final
+                        function($match) use($new_env_var_final){
+                            return $match[0] . "\n" . $new_env_var_final;
+                        }
                     );
                 }
             }
@@ -80,7 +85,9 @@ class Env
                 if ($content->isMatch($pattern)) {
                     $replaced_env = $content->replaceMatches(
                         $pattern,
-                        fn($match) => $match[0] . "\n" . $new_env_var_final
+                        function($match) use($new_env_var_final){
+                            return $match[0] . "\n" . $new_env_var_final;
+                        }
                     );
                     $isAfterKey = true;
                     File::put(base_path($this->env_file), $replaced_env);
